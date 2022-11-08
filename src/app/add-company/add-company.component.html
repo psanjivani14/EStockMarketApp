@@ -1,0 +1,46 @@
+<p>add-company works!</p>
+<div class="card">
+    <h5 class="card-header">Company Registration</h5>
+    <div class="card-body">
+        <form [formGroup]="addForm">
+            <div class="row mb-3">
+                <div class="form-group col">
+                    <label>Company Code</label>
+                    <input type="text" class="form-control" formControlName="companyCode" />
+                </div>
+                <div class="form-group col">
+                    <label>Company Name</label>
+                    <input type="text" class="form-control" formControlName="companyName" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="form-group col">
+                    <label>Company CEO</label>
+                    <input type="text" class="form-control" formControlName="companyCeo" />
+                </div>
+                <div class="form-group col">
+                    <label>Company website</label>
+                    <input type="text" class="form-control" formControlName="website" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="form-group col">
+                    <label>Company turnover</label>
+                    <input type="text" class="form-control" formControlName="turnover" />
+                </div>
+                <div class="form-group col">
+                    <label>Stock Price</label>
+                    <input type="text" class="form-control" formControlName="stockPrice" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>

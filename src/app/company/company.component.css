@@ -1,0 +1,16 @@
+viewCompanyDtl{
+    border-style: solid;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  th {
+    border: 3px solid #dddddd;
+    text-align: left;
+    padding: 1px;
+  }
+  
