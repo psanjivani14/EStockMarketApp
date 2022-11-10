@@ -10,6 +10,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddCompanyComponent } from './add-company/add-company.component';
+import { StockComponent } from './stock/stock.component';
+import { CompanyDtlsComponent } from './company-dtls/company-dtls.component';
+import { UpdateCompanyComponent } from './update-company/update-company.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -18,7 +22,11 @@ import { AddCompanyComponent } from './add-company/add-company.component';
     CompanyComponent,
     HeaderComponent,
     FooterComponent,
-    AddCompanyComponent
+    AddCompanyComponent,
+    StockComponent,
+    CompanyDtlsComponent,
+    UpdateCompanyComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

@@ -16,61 +16,19 @@
             <th>Action</th>
         </tr>
         <tr *ngFor="let c of comArr">
-            <th>{{c.companyCode}}</th>
+            <th><a [routerLink]="['/companydtl', c.companyCode]">{{c.companyCode}}</a></th>
             <th>{{c.companyName}}</th>
             <th>{{c.companyCeo}}</th>
             <th>{{c.website}}</th>
             <th>{{c.turnover}}</th>
-            <th></th>
-            <th><button (click)="updateCompany(c.companyCode)">Update</button>
-            <button (click)="deleteCompany(c.companyCode)">Delete</button></th>
-           <!-- <th><i class="fa fa-edit" onclick="updateCompany(c.companyCode)"></i>
-            <i class="fa fa-trash-o" onclick="deleteCompany(c.companyCode)"></i></th>-->
+            <th>{{c.stockPrice}}</th>
+            <th>
+                <button class="data" mat-flat-button [routerLink]="['/addStock', c.companyCode]">Add Stock Price</button>
+                <button>Update</button>
+                <button (click)="deleteCompany(c.companyCode)">Delete</button>
+            </th>
         </tr>
     </table>
 </div>
----------------------add company show------
+<!------Update commpany details form-->
 
-<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addModalLabel">Add Company</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <form #companyForm="ngForm">
-
-                        <input name="companyCode" ngDefaultControl class="form-control" type="number" placeholder="Enter company code"
-                            [(ngModel)]="comObj.companyCode" required>
-                        <br>
-
-                        <input name="companyName" ngDefaultControl class="form-control" type="text"
-                            placeholder="Enter company companyName" [(ngModel)]="comObj.companyName" required>
-                        <br>
-
-                        <input name="ceoName" ngDefaultControl class="form-control" type="text" placeholder="Enter company ceo name"
-                            [(ngModel)]="comObj.companyCeo" required>
-                        <br>
-
-                        <input name="website"  ngDefaultControl class="form-control" type="text" placeholder="Enter company website"
-                            [(ngModel)]="comObj.website" required>
-                        <br>
-
-                        <input name="turnover" ngDefaultControl class="form-control" type="number" placeholder="Enter company turnover"
-                            [(ngModel)]="comObj.turnover" required>
-                        <br>
-
-                        <input readonly name="stockPrice" ngDefaultControl class="form-control" type="number"
-                            placeholder="Enter company stock price" [(ngModel)]="comObj.stockPrice"
-                            required>
-                        <br>
-
-                        <button type="button" class="btn btn-primary" (click)="addCompanyDetails()" data-bs-dismiss="modal">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

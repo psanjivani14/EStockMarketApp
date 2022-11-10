@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CompanyService } from '../company.service';
+import { StockService } from './stock.service';
 
-describe('CompanyService', () => {
-  let service: CompanyService;
+describe('StockService', () => {
+  let service: StockService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CompanyService);
+    service = TestBed.inject(StockService);
   });
 
   it('should be created', () => {

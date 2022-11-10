@@ -1,3 +1,5 @@
+import { Stock } from "../stock/stock";
+
 export class Company {
 
     companyCode :number | any;
@@ -6,5 +8,5 @@ export class Company {
     turnover : number | any;
     companyCeo : string | any;
     stockPrice: number | any;
-   // stockList: Array<Stock>=[];
+    stockList: Array<Stock>=[];
 }

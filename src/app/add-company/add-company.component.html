@@ -1,8 +1,8 @@
 <p>add-company works!</p>
-<div class="card">
+<!--<div class="card">
     <h5 class="card-header">Company Registration</h5>
     <div class="card-body">
-        <form [formGroup]="addForm">
+        <form [formGroup]="addForm"  >
             <div class="row mb-3">
                 <div class="form-group col">
                     <label>Company Code</label>
@@ -35,12 +35,38 @@
                     <input type="text" class="form-control" formControlName="stockPrice" />
                 </div>
             </div>
-
             <div class="row mb-3">
-                <button type="submit" class="btn btn-success">Save</button>
+                <button type="submit" class="btn btn-success" (click)="addCompanyDetails()">Save</button>
             </div>
         </form>
-
     </div>
+</div>-->
+---------------------------------
+<div>
+    <h5>Add stock Details</h5>
+      <div>
+      <form #stockForm="ngForm" (ngSubmit)="addCompanyDetails(comObj)">
+      
+      <input name="companyCode" class="form-control" type="number" placeholder="Enter Company code" [(ngModel)]="comObj.companyCode" required>
+      <br>
+      
+      <input name="CompanyName" class="form-control" type="text" placeholder="Enter company name" [(ngModel)]="comObj.companyName" required>
+      <br>
+      
+      <input name="CompanyCeo" class="form-control" type="text" placeholder="Enter company ceo name" [(ngModel)]="comObj.companyCeo" required>
+      <br>
 
-</div>
+      <input name="website" class="form-control" type="text" placeholder="Enter company website" [(ngModel)]="comObj.website" required>
+      <br>
+
+      <input name="turnover" class="form-control" type="text" placeholder="Enter company turnover" [(ngModel)]="comObj.turnover" required>
+      <br>
+
+      <input name="stockPrice" class="form-control" type="text" placeholder="Enter company stock price" [(ngModel)]="comObj.stockPrice" required>
+      <br>
+      
+      <button type="submit" class="btn btn-primary">Add Company Details</button>
+      
+      </form>
+      </div>
+  </div>

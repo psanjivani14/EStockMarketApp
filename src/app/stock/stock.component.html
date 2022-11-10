@@ -1,0 +1,30 @@
+
+<!--<div class="modal fade" id="addingStockModal" tabindex="-1" data-mdb-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add stock Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>-->
+        <div>
+          <h5>Add stock Details</h5>
+            <div>
+            <form #stockForm="ngForm" (ngSubmit)="addStock(stockObj.comp_code_fk)">
+            
+            <input name="stockPrice" class="form-control" type="number" placeholder="Enter Stock price" [(ngModel)]="stockObj.stockPrice" required>
+            <br>
+            
+            <input name="timeStamp" class="form-control" type="datetime-local" placeholder="Enter Date" [(ngModel)]="stockObj.issueAt" required>
+            <br>
+            
+            <input name="company_code_FK" class="form-control" type="number" placeholder="Enter company" [(ngModel)]="stockObj.comp_code_fk" required>
+            <br>
+            
+            <button type="submit" class="btn btn-primary">Add Stock Details</button>
+            
+            </form>
+            </div>
+        </div>
+     <!-- </div>
+    </div>
+  </div>-->

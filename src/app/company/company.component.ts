@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CompanyService } from '../company.service';
 import { Company } from './company';
-import { CompanyService } from './company.service';
+
 
 @Component({
   selector: 'app-company',
@@ -10,7 +13,8 @@ import { CompanyService } from './company.service';
 })
 export class CompanyComponent implements OnInit {
 
-  constructor(private http:HttpClient, private companyService:CompanyService, //private fb:FormBuilder
+  constructor(private http:HttpClient, private companyService:CompanyService,
+    private router:Router //private fb:FormBuilder
     ) { }
   
   ngOnInit(): void {
@@ -22,6 +26,8 @@ export class CompanyComponent implements OnInit {
   comArr:Array<Company>=[];
   updatedArr: any ={};
   data:{}|any;
+  closeResult = '';
+  companyDetails: | any;
 
   addCompanyDetails()
   {
@@ -39,6 +45,7 @@ export class CompanyComponent implements OnInit {
   getCompanyList(){
    this.companyService.getAllCompany().subscribe(data=>{
      this.data = JSON.stringify(data);
+     this.companyDetails = data;
      this.comArr = Object.values(data);
      console.log("sssssss "+this.comObj);
    })
@@ -51,7 +58,7 @@ export class CompanyComponent implements OnInit {
       alert("Company is deleted..!!");
       window.location.reload();
       this.getCompanyList();
-    })
+    });
   }
 
   updateCompany(companyObj:Company){
@@ -68,8 +75,8 @@ export class CompanyComponent implements OnInit {
           } ,
     (error)=>{
       console.log(error);
-    })
-  })
+    });
+  });
 
 }
 
@@ -89,5 +96,12 @@ export class CompanyComponent implements OnInit {
 
     })
   }
+
+ /* updateCompanyRecord(id: number)
+  {
+    console.log("id "+id);
+     this.companyService.getId(id);
+    this.router.navigate(['update-company']);
+  }*/
 
 }
