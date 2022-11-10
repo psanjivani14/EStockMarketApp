@@ -1,4 +1,4 @@
-<p>company works!</p>
+
 <div>
     <button class="btn btn-info" type="button" routerLink="/addCompany/page">Add Company</button>
     <!--<button  class="btn btn-success" mat-flat-button color="accent" data-bs-toggle="modal" data-bs-target="#addModal" type="submit">Add
@@ -24,11 +24,14 @@
             <th>{{c.stockPrice}}</th>
             <th>
                 <button class="data" mat-flat-button [routerLink]="['/addStock', c.companyCode]">Add Stock Price</button>
-                <button>Update</button>
+                <button >Update</button>
                 <button (click)="deleteCompany(c.companyCode)">Delete</button>
             </th>
         </tr>
     </table>
 </div>
-<!------Update commpany details form-->
+<!------Using Material Form------->
+
+  
+
 

@@ -9,7 +9,7 @@ import { UserService } from './user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  constructor(private userservice: UserService, private http:HttpClient) { }
+  constructor(private userService: UserService, private http:HttpClient) { }
 
   ngOnInit(): void {
 
@@ -19,9 +19,26 @@ export class UserComponent implements OnInit {
   userArr:Array<User>=[];
   data:{}|any;
 
-  registerUser(){
-      
+  registerUser(user: User){
+    this.userService.registerUser(user).subscribe(data=>{
+      console.log("Inside registerUser "+data);
+      if(data!=null){
+        this.userObj = data;
+        this.userArr.push(data);
+        //console.log("Inside register user: "+this.userObj);
+      }else{
+          console.log("User not registered successfully");
+      }
+    
+    }, error =>{
+      console.log("Error in register user");
+    });
   }
+
+  registerUser1(){
+    
+  }
+
 
   /*addUser(user:User)
   {

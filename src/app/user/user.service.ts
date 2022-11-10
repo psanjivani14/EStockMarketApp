@@ -11,7 +11,8 @@ export class UserService {
   constructor(private http:HttpClient) { }
   users : User[] | any;
 //  '
-private apiResister:string='http://localhost:8081/auth/user/register-user';
+//private apiResister:string='http://localhost:8081/auth/user/register-user';
+private apiResister:string= 'http://localhost:8082/consume-register';
 private apiLogin:string='http://localhost:8081/auth/user/register-user/login';
 private apiGetAllUser:string ='http://localhost:8081/api/v1/users/getAllUsers';
 private apiAddUser:string ='http://localhost:8081/api/v1/users/add-user';
@@ -19,13 +20,13 @@ private apiAddUser:string ='http://localhost:8081/api/v1/users/add-user';
 registerUser(user:User):Observable<User>
 {
   alert("resgistering user..!");
-  return this.http.post<User>(this.apiResister, user);
+  return this.http.post<User>('${this.apiResister}', user);
 }
 
 loginUser(user:User):Observable<Map<String, String>>
 {
   alert("Trying to login user..!");
-  return this.http.post<Map<String, String>>(this.apiLogin, user);
+  return this.http.post<Map<String, String>>('{this.apiLogin}', user);
 }
 
 getAllUser():Observable<Array<User>>

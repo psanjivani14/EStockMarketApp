@@ -28,6 +28,7 @@ export class CompanyComponent implements OnInit {
   data:{}|any;
   closeResult = '';
   companyDetails: | any;
+  //stockListFinal:| any;
 
   addCompanyDetails()
   {

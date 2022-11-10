@@ -6,13 +6,16 @@ import { CompanyDtlsComponent } from './company-dtls/company-dtls.component';
 import { CompanyComponent } from './company/company.component';
 import { StockComponent } from './stock/stock.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
+  
   {path: 'company', component:CompanyComponent},
   {path: 'addCompany/page', component:AddCompanyComponent},
   {path: 'addStock/:id',component:StockComponent },
   {path: 'companydtl/:id', component:CompanyDtlsComponent},
-  {path: 'update-company', component:UpdateCompanyComponent}
+  {path: 'update-company', component:UpdateCompanyComponent},
+  {path: 'register', component:UserComponent}
 ];
 
 @NgModule({

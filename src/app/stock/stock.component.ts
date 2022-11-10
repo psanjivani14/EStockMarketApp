@@ -31,8 +31,10 @@ export class StockComponent implements OnInit {
   getStock(cid:number){
     this.stockService.getAllStock(cid).subscribe(data=>{
       this.data = JSON.stringify(data);
-      this.stockArr = Object.values(data);
-      console.log(this.stockArr);
+     // this.stockArr = data;
+      this.stockArr.push(this.data);
+      //this.stockArr = Object.values(data);
+      console.log("getting atock arr "+this.stockArr);
     },
     error=>{
       console.log(error);

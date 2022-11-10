@@ -1,1 +1,19 @@
-<p>user works!</p>
+<br>
+<div>
+    <h5>User Registration Form</h5>
+      <div>
+      <form #stockForm="ngForm" (ngSubmit)="registerUser(userObj)">
+      
+        <input name="id" class="form-control" type="number" placeholder="Enter id " [(ngModel)]="userObj.id" required>
+      <br>
+      <input name="username" class="form-control" type="text" placeholder="Enter username " [(ngModel)]="userObj.username" required>
+      <br>
+      
+      <input name="password" class="form-control" type="text" placeholder="Enter password" [(ngModel)]="userObj.password" required>
+      <br>
+      
+      <button type="submit" class="btn btn-primary">Register-Me</button>
+      
+      </form>
+      </div>
+  </div>

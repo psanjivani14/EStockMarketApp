@@ -10,6 +10,7 @@ export class StockService {
 
   constructor(private http:HttpClient) { }
   stockList: Stock[]|any;
+  
 
 private apiPosStock:string = 'http://localhost:8082/api/v1.0/market/stock/addStock';
 private apiGetStock:string ='http://localhost:8082/api/v1.0/market/stock/getAllStocks';

@@ -8,5 +8,5 @@ export class Company {
     turnover : number | any;
     companyCeo : string | any;
     stockPrice: number | any;
-    stockList: Array<Stock>=[];
+    stockList: Array<Stock> | any;
 }

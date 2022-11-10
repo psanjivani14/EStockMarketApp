@@ -1,16 +1,27 @@
 
 <div>
     <table>
-        <thead>Company and Stock Details</thead>
+        <thead>Company  Details</thead>
             <tbody>
-             <tr><th></th> <th>Company Code : </th><td>{{companyDetails.companyCode}}</td><td></td> </tr>
-             <tr><th></th> <th>Company Name : </th><td>{{companyDetails.companyName}}</td><td></td> </tr>
-             <tr><th></th> <th>Company CEO : </th><td>{{companyDetails.companyCeo}}</td><td></td> </tr>
-             <tr><th></th> <th>Company website : </th><td>{{companyDetails.website}}</td><td></td> </tr>
-             <tr><th></th> <th>Company Turnover : </th><td>{{companyDetails.turnover}}</td><td></td> </tr>
+             <tr><th></th> <th>Company Code : </th><td>{{companyObj.companyCode}}</td><td></td> </tr>
+             <tr><th></th> <th>Company Name : </th><td>{{companyObj.companyName}}</td><td></td> </tr>
+             <tr><th></th> <th>Company CEO : </th><td>{{companyObj.companyCeo}}</td><td></td> </tr>
+             <tr><th></th> <th>Company website : </th><td>{{companyObj.website}}</td><td></td> </tr>
+             <tr><th></th> <th>Company Turnover : </th><td>{{companyObj.turnover}}</td><td></td> </tr>
             </tbody>
     </table>
 </div>
+<hr>
+<div>
+    <table>
+            <tbody>
+             <tr><th></th> <th>Avarage Stock Price : </th><td>{{AvgStockPrice}}</td><td></td> </tr>
+             <tr><th></th> <th>Maximum Stock Price : </th><td>{{maxStockPrice}}</td><td></td> </tr>
+             <tr><th></th> <th>Mininum Stock Price : </th><td>{{minStockPrice}}</td><td></td> </tr>
+            </tbody>
+    </table>
+</div>
+<hr>
 
 <div>
     <table>
@@ -21,11 +32,12 @@
             <th>Timestamp</th>
         </tr>
         <tbody>
-           <!-- <tr *ngFor="let arr of stockArray">
-                  <td>{{arr.comp_code_fk}}</td>
-                <td>{{arr.stockPrice}}</td>
-                <td>{{arr.issueAt}}</td>
-            </tr>-->
+            <tr *ngFor="let c of stockList">
+               <td>{{c.tranactionId}}</td>
+                <td>{{c.stockPrice}}</td>
+                <td>{{c.issueAt}}</td>
+                
+            </tr>
         </tbody>
     </table>
 </div>
