@@ -4,7 +4,12 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CompanyService } from '../company.service';
 import { Company } from './company';
+import {DataSource} from '@angular/cdk/collections';
+import {Observable, ReplaySubject} from 'rxjs';
 
+export interface PeriodicElement {
+  
+}
 
 @Component({
   selector: 'app-company',
@@ -14,15 +19,17 @@ import { Company } from './company';
 export class CompanyComponent implements OnInit {
 
   constructor(private http:HttpClient, private companyService:CompanyService,
-    private router:Router //private fb:FormBuilder
+    private router:ActivatedRoute //private fb:FormBuilder
     ) { }
   
+    comObj:Company = new Company();
   ngOnInit(): void {
     //window.location.reload();
     this.getCompanyList();
+    this.comObj.companyCode= this.router.snapshot.paramMap.get('id');
   }
 
-  comObj:Company = new Company();
+  
   comArr:Array<Company>=[];
   updatedArr: any ={};
   data:{}|any;
@@ -91,7 +98,7 @@ export class CompanyComponent implements OnInit {
       this.compArr = Object.values(data);
       console.log("comp component compArr "+this.compArr);
      // this.data = JSON.stringify(data);
-     this.comp = data;
+      this.comp = data;
      console.log("comp component  comp "+this.comp);
       alert("Serch result is given.!");
 

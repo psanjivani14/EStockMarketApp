@@ -6,7 +6,7 @@
           <h5 class="modal-title" id="exampleModalLabel">Add stock Details</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>-->
-        <div>
+        <div class="stockDiv">
           <h5>Add stock Details</h5>
             <div>
             <form #stockForm="ngForm" (ngSubmit)="addStock(stockObj.comp_code_fk)">
@@ -28,12 +28,3 @@
      <!-- </div>
     </div>
   </div>-->
-===========================
-
-<div class="example-container">
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your email</mat-label>
-    <input matInput placeholder="pat@example.com" required>
-    <mat-error *ngIf=""></mat-error>
-  </mat-form-field>
-</div>

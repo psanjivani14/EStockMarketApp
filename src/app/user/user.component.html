@@ -1,19 +1,70 @@
 <br>
-<div>
-    <h5>User Registration Form</h5>
-      <div>
-      <form #stockForm="ngForm" (ngSubmit)="registerUser(userObj)">
+
+
+<div fxLayout="row" fxLayoutWrap="wrap">
+  <!-- column -->    
+  <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" fxFlex="50">
+      <mat-card>
+          <mat-card-content>
+              <!-- Row -->
+              <div fxLayout="row" fxLayoutWrap="wrap">
+                  <!-- column -->
+                  <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" >
+                      <div class="contains">
+                          <div class="login-box">
+                                  <mat-card class="mat-elevation-z2" style="background-color:whitesmoke">
+                                          <mat-card-header style="background-color: teal; color: whitesmoke;">Login Here</mat-card-header>
+                                          <br>
+                                          <mat-card-content>
+                                            <form class="form my-2 my-lg-0" #loginForm="ngForm" (ngSubmit)="loginUser()">
+                            
+                                              <mat-form-field>
+                                                <input type="text" class="text-white" placeholder="Username" name="username" [(ngModel)]="userObj.username" required matInput/>
+                                              </mat-form-field>
+                                              <mat-form-field>
+                                                <input type="password" placeholder="Password" name="password" [(ngModel)]="userObj.password" required matInput/>
+                                              </mat-form-field>
+                                              <button
+                                                type="submit"
+                                                mat-raised-button
+                                                class="btn btn-primary btn-sm btn-block"
+                                                [disabled]="!loginForm.valid"
+                                              >
+                                              Login
+                                              </button>
+                                            </form>
+                                          </mat-card-content>
+                                        </mat-card>
+                              </div>
+                      </div>
+                      <h3>Not a member     <a routerLink="/signup">Sign Up</a>     here </h3>
+                  </div>
+              </div>      
+          </mat-card-content>
+      </mat-card>
       
-        <input name="id" class="form-control" type="number" placeholder="Enter id " [(ngModel)]="userObj.id" required>
-      <br>
-      <input name="username" class="form-control" type="text" placeholder="Enter username " [(ngModel)]="userObj.username" required>
-      <br>
-      
-      <input name="password" class="form-control" type="text" placeholder="Enter password" [(ngModel)]="userObj.password" required>
-      <br>
-      
-      <button type="submit" class="btn btn-primary">Register-Me</button>
-      
-      </form>
-      </div>
   </div>
+  <!-- column -->    
+</div>
+
+<!--<div class="mat-app-background basic-container">
+  <div layout-gt-sm="column" style="min-width: 350px; max-width: 450px; margin:auto">
+    <mat-card flex-gt-sm class="push">
+      <div style="text-align:center;">
+        <mat-card-title>Login</mat-card-title>
+      </div>
+      <div style="text-align:center;">
+      <mat-card-content>
+        <form [formGroup]="loginForm" class="form" (ngSubmit)="login()">
+          <table cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field>
+                    <div style="text-align:center;">
+                  <input matInput placeholder="{{ 'LOGIN.USERNAME' | translate }}" name="username"
+                    formControlName="username" type="name" />
+                  <mat-error *ngIf="formErrors.username" class="form__error">{{ formErrors.username }} </mat-error>
+                </div>
+                </mat-form-field>
+              </td>
+            </tr>-->

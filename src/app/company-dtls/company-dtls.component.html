@@ -1,31 +1,31 @@
 
 <div>
-    <table>
-        <thead>Company  Details</thead>
-            <tbody>
-             <tr><th></th> <th>Company Code : </th><td>{{companyObj.companyCode}}</td><td></td> </tr>
-             <tr><th></th> <th>Company Name : </th><td>{{companyObj.companyName}}</td><td></td> </tr>
-             <tr><th></th> <th>Company CEO : </th><td>{{companyObj.companyCeo}}</td><td></td> </tr>
-             <tr><th></th> <th>Company website : </th><td>{{companyObj.website}}</td><td></td> </tr>
-             <tr><th></th> <th>Company Turnover : </th><td>{{companyObj.turnover}}</td><td></td> </tr>
+    <table class="table table-hover">
+        <thead>Company and Stock details</thead>
+            <tbody class="comdtls">
+             <tr> <th>Company Code : </th><td>{{companyObj.companyCode}}</td></tr>
+             <tr> <th>Company Name : </th><td>{{companyObj.companyName}}</td> </tr>
+             <tr> <th>Company CEO : </th><td>{{companyObj.companyCeo}}</td><td></td> </tr>
+             <tr> <th>Company website : </th><td>{{companyObj.website}}</td><td></td> </tr>
+             <tr> <th>Company Turnover : </th><td>{{companyObj.turnover}}</td><td></td> </tr>
             </tbody>
     </table>
 </div>
 <hr>
 <div>
-    <table>
-            <tbody>
-             <tr><th></th> <th>Avarage Stock Price : </th><td>{{AvgStockPrice}}</td><td></td> </tr>
-             <tr><th></th> <th>Maximum Stock Price : </th><td>{{maxStockPrice}}</td><td></td> </tr>
-             <tr><th></th> <th>Mininum Stock Price : </th><td>{{minStockPrice}}</td><td></td> </tr>
+    <table class="table table-hover" >
+            <tbody  class="avgbody" align="center">
+                
+             <tr> <th>Avarage Stock Price : </th><td>{{AvgStockPrice}}</td><td></td> </tr>
+             <tr> <th>Maximum Stock Price : </th><td>{{maxStockPrice}}</td><td></td> </tr>
+             <tr> <th>Mininum Stock Price : </th><td>{{minStockPrice}}</td><td></td> </tr>
+                 
             </tbody>
     </table>
 </div>
 <hr>
-
 <div>
-    <table>
-        <thead>Stock Details</thead>
+    <table class="table table-hover">
         <tr>
             <th>Company Code</th>
             <th>Stock Price</th>
@@ -36,8 +36,8 @@
                <td>{{c.tranactionId}}</td>
                 <td>{{c.stockPrice}}</td>
                 <td>{{c.issueAt}}</td>
-                
             </tr>
         </tbody>
     </table>
 </div>
+<!-------------------------------------------->

@@ -29,7 +29,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {MAT_FORM_FIELD, MatFormField, MatFormFieldControl} from '@angular/material/form-field';
+import { RegisterUserComponent } from './register-user/register-user.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     StockComponent,
     CompanyDtlsComponent,
     UpdateCompanyComponent,
-    UserComponent
+    UserComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
    MatTableModule,
    MatListModule,
    MatIconModule,
-   MatPaginatorModule
+   MatPaginatorModule,
+  
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

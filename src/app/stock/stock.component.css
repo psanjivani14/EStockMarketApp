@@ -1,0 +1,14 @@
+.stockDiv{
+    text-align: center;
+    background-color: skyblue;
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    size: 0px;
+    
+}
+
+h5{
+    font-size: large;
+    text-align: left;
+    initial-letter: inherit;
+}

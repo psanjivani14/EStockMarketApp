@@ -1,0 +1,17 @@
+thead{
+  
+      font-size: large;
+      color: maroon;
+      text-decoration-style: dashed;
+  
+}
+.comdtlss {
+   table-layout: auto;
+}
+.comdtls{
+    table-layout: fixed;
+}
+
+.avgbody{
+   background-color: rgb(240, 184, 184);
+}

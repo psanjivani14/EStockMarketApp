@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { User } from './user';
 
 @Injectable({
@@ -12,31 +12,29 @@ export class UserService {
   users : User[] | any;
 //  '
 //private apiResister:string='http://localhost:8081/auth/user/register-user';
-private apiResister:string= 'http://localhost:8082/consume-register';
-private apiLogin:string='http://localhost:8081/auth/user/register-user/login';
-private apiGetAllUser:string ='http://localhost:8081/api/v1/users/getAllUsers';
-private apiAddUser:string ='http://localhost:8081/api/v1/users/add-user';
 
-registerUser(user:User):Observable<User>
-{
-  alert("resgistering user..!");
-  return this.http.post<User>('${this.apiResister}', user);
-}
+private apiLogin:string='http://localhost:8081/auth/user/login';
 
-loginUser(user:User):Observable<Map<String, String>>
+
+loginUser(user:User):Observable<any>
 {
   alert("Trying to login user..!");
-  return this.http.post<Map<String, String>>('{this.apiLogin}', user);
+  return this.http.post<any>(this.apiLogin, user).pipe(
+    map(
+      (data)=>{
+        localStorage.setItem('username', user.username);
+        let token='Bearer'+data.token;
+        localStorage.setItem('token', token);
+        return data;
+      }
+    )
+  );
 }
 
 getAllUser():Observable<Array<User>>
 {
   alert("Fetching all users..!");
-  return this.http.get<Array<User>>(this.apiGetAllUser);
+  return this.http.get<Array<User>>("");
 }
 
-addUser(user:User):Observable<User>
-{
-  return this.http.post<User>(this.apiAddUser, user);
-}
 }

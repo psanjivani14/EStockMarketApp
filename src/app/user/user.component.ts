@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from './user';
 import { UserService } from './user.service';
 
@@ -9,43 +10,43 @@ import { UserService } from './user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  constructor(private userService: UserService, private http:HttpClient) { }
+  constructor(private userService: UserService, private http: HttpClient, private router:Router) { }
 
   ngOnInit(): void {
 
   }
+  userObj: User = new User();
+  userArr: Array<User> = [];
+  data: {} | any;
+  
 
-  userObj:User = new User();
-  userArr:Array<User>=[];
-  data:{}|any;
-
-  registerUser(user: User){
-    this.userService.registerUser(user).subscribe(data=>{
-      console.log("Inside registerUser "+data);
-      if(data!=null){
-        this.userObj = data;
-        this.userArr.push(data);
-        //console.log("Inside register user: "+this.userObj);
+  loginUser(){
+    this.userService.loginUser(this.userObj).subscribe((response:any)=>{
+      if(response.token == null){
+        alert("User logged in  successfully..!!");
+        console.log(response);
+        this.router.navigate(['/company']);
       }else{
-          console.log("User not registered successfully");
+        alert("Please provide valid credentials");
       }
-    
-    }, error =>{
-      console.log("Error in register user");
+      
+    }, error=>{
+      alert("Please provide valid credentials..");
+     // alert("Error in logged in");
     });
   }
 
-  registerUser1(){
-    
+  username: string = "";
+  password: string = "";
+  show: boolean = false;
+  submit() {
+    console.log("user name is " + this.username)
+    this.clear();
   }
-
-
-  /*addUser(user:User)
-  {
-    this.userservice.addUser(user).subscribe((data)=>{
-      this.userArr.push(data);
-      console.log("Inside addUser component: userArr is "+this.userArr);
-    });
-  }*/
+  clear() {
+    this.username = "";
+    this.password = "";
+    this.show = true;
+  }
 
 }

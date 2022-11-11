@@ -66,5 +66,6 @@ export class CompanyDtlsComponent implements OnInit {
       console.log("Minimum stock price:: "+this.minStockPrice);
   }
 
+  
 
 }

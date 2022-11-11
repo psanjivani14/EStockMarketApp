@@ -19,6 +19,7 @@ export class StockComponent implements OnInit {
 
   ngOnInit(): void {
     this.stockObj.comp_code_fk= this.router.snapshot.paramMap.get('id');
+    
   }
 
    stockObj: Stock = new Stock();
@@ -34,7 +35,7 @@ export class StockComponent implements OnInit {
      // this.stockArr = data;
       this.stockArr.push(this.data);
       //this.stockArr = Object.values(data);
-      console.log("getting atock arr "+this.stockArr);
+      console.log("getting stock arr "+this.stockArr);
     },
     error=>{
       console.log(error);
@@ -45,6 +46,7 @@ export class StockComponent implements OnInit {
   {
     console.log("Started addStock component"+cid);
     this.stockService.addStock(cid, this.stockObj).subscribe(data=>{
+      alert("Stock details added successfully..!!")
       console.log("data "+data);
       this.data = JSON.stringify(data);
       this.stockArr.push(this.data);
