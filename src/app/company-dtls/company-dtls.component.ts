@@ -24,15 +24,15 @@ export class CompanyDtlsComponent implements OnInit {
 
   ngOnInit(): void {
    this.router.params.subscribe(params=>{
-      let id = params['id'];
-      this.companyService.getCompanyById(id).subscribe(data=>{
+      //let id = params['id'];
+      this.companyService.getCompanyById(params['id']).subscribe(data=>{
        // this.data = JSON.stringify(data);
+       console.log("data from api "+data);
         this.companyObj = data;
         console.log("printing companyDetails "+this.companyObj);
         this.stockList =  this.companyObj.stockList;
         this.calculateAvgStockPrice();
-        //this.companyDetails = Object.values(data);
-        //console.log("printing companyDetails "+this.companyDetails);
+        
       });
     });
   }

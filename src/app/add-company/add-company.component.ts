@@ -52,7 +52,7 @@ export class AddCompanyComponent implements OnInit {
       this.data = JSON.stringify(data);
       this.comArr.push(this.data);
       alert("Company data saved successfully..!");
-      window.location.reload();
+      //window.location.reload();
      this.route.navigate(['/company']);
     },
     error=>{

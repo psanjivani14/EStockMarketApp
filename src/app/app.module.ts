@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompanyComponent } from './company/company.component';
@@ -31,6 +31,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MAT_FORM_FIELD, MatFormField, MatFormFieldControl} from '@angular/material/form-field';
 import { RegisterUserComponent } from './register-user/register-user.component';
+import { AuthHttpInterceptorService } from './auth-http-interceptor.service';
+import { GetByIdComponent } from './get-by-id/get-by-id.component';
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { RegisterUserComponent } from './register-user/register-user.component';
     CompanyDtlsComponent,
     UpdateCompanyComponent,
     UserComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    GetByIdComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,13 @@ import { RegisterUserComponent } from './register-user/register-user.component';
   
    
   ],
-  providers: [],
+  providers: [CompanyComponent,
+  {
+provide: HTTP_INTERCEPTORS,
+useClass: AuthHttpInterceptorService,
+multi: true
+
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

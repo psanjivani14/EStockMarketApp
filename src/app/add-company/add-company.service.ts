@@ -12,7 +12,7 @@ export class AddCompanyService {
 
   addcompanys : Company[] | any;
 
-  private apiPost:string ='http://localhost:8082/api/v1.0/market/company/addCompany';
+  private apiPost:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/postcompany';
 
   addCompany(comObj:Company):Observable<Company>
   {

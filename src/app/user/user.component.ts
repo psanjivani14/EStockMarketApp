@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CompanyService } from '../company.service';
 import { User } from './user';
 import { UserService } from './user.service';
 
@@ -10,7 +11,8 @@ import { UserService } from './user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  constructor(private userService: UserService, private http: HttpClient, private router:Router) { }
+  constructor(private userService: UserService, private http: HttpClient, private router:Router,
+     public companyservice:CompanyService) { }
 
   ngOnInit(): void {
 

@@ -4,6 +4,7 @@ import { AddCompanyComponent } from './add-company/add-company.component';
 import { AppComponent } from './app.component';
 import { CompanyDtlsComponent } from './company-dtls/company-dtls.component';
 import { CompanyComponent } from './company/company.component';
+import { GetByIdComponent } from './get-by-id/get-by-id.component';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { StockComponent } from './stock/stock.component';
 import { UpdateCompanyComponent } from './update-company/update-company.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'addStock/:id',component:StockComponent },
   {path: 'companydtl/:id', component:CompanyDtlsComponent},
   {path: 'update-company/:comObj', component:UpdateCompanyComponent},
-  {path: 'register', component:UserComponent}
+  {path: 'register', component:UserComponent},
+  {path: 'getbyid/:id', component:GetByIdComponent}
 ];
 
 @NgModule({

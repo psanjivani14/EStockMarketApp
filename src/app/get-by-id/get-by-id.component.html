@@ -1,0 +1,33 @@
+
+<div id="searchDiv">
+    <table class="viewCompanyDtl">
+        <thead>
+        <tr>
+            <th scope="col">Company Code</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">Company CEO</th>
+            <th scope="col">Company website</th>
+            <th scope="col">Company Turnover</th>
+            <th scope="col">Stock Price</th>
+           <!-- <th>Action</th>-->
+        </tr>
+    </thead>
+    <tbody class="avgbody">
+        <tr>
+            <th>{{company.companyCode}}</th>
+            <th>{{company.companyName}}</th>
+            <th>{{company.companyCeo}}</th>
+            <th>{{company.website}}</th>
+            <th>{{company.turnover}}</th>
+            <th>{{company.stockPrice}}</th>
+            <th>
+               <!-- <button mat-flat-button [routerLink]="['/addStock', c.companyCode]">Add Stock Price</button>-->
+                <!--<button mat-flat-button [routerLink]="['/addStock', company.companyCode]" color="primary">Add Stock Price</button>
+                <button [routerLink]="['/update-company',company]" mat-flat-button color="accent">Update</button>-->
+               <!-- <button (click)="deleteCompany(company.companyCode)" mat-flat-button color="warn" >Delete</button>-->
+            </th>
+        </tr>
+    </tbody>
+    </table>
+  </div>
+  

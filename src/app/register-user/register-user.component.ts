@@ -20,18 +20,14 @@ export class RegisterUserComponent implements OnInit {
   registerObj: User = new User();
   registerArr: Array<User> = [];
   data: {} | any;
+  dataa:string|any;
 
   registerUser() {
-    this.registerService.registerUser(this.registerObj).subscribe(data => {
-      console.log("Inside registerUser " + data);
+    this.registerService.registerUser(this.registerObj)
+    .subscribe((dataa:any) => {
+      console.log("Inside registerUser "+dataa);
       alert("User registered successfully..!!");
-        this.registerArr.push(this.data);
-       // window.location.reload();
-        console.log(this.registerArr);
         this.router.navigate(['/login']);
-    }, error => {
-      alert("Please provide required fileds..!!");
-      console.log("Error in register user");
     });
   }
 

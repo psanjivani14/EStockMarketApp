@@ -5,84 +5,84 @@
         Company</button>
 </div>-->
 <div class="demo-button-container">
-    <button color="primary" mat-raised-button routerLink="/addCompany/page" class="demo-button">
-      Register Company
-    </button>
-    <button class="btn btn-info pull-right" (click)="getCompanyById(comObj.companyCode)">Search Company By Id</button>
-    <input type="text" class="pull-right" placeholder="Search by Company Id">
+  <button color="primary" mat-raised-button routerLink="/addCompany/page" class="demo-button">
+    Register Company
+  </button>
+  <button class="btn btn-info pull-right" [routerLink]="['/getbyid', comp.companyCode]" >Search Company By Id</button>
+  <input type="text" class="pull-right" placeholder="Search by Company Id" [(ngModel)]="comp.companyCode">
+  <button class="btn btn-danger"(click)="navigateToLogout()" >Logout</button>
 </div>
 <div class="tblDiv">
-    <table class="viewCompanyDtl">
-        <thead>
-        <tr>
-            <th>Company Code</th>
-            <th>Company Name</th>
-            <th>Company CEO</th>
-            <th>Company website</th>
-            <th>Company Turnover</th>
-            <th>Stock Price</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let c of comArr">
-            <th><a [routerLink]="['/companydtl', c.companyCode]">{{c.companyCode}}</a></th>
-            <th>{{c.companyName}}</th>
-            <th>{{c.companyCeo}}</th>
-            <th>{{c.website}}</th>
-            <th>{{c.turnover}}</th>
-            <th>{{c.stockPrice}}</th>
-            <th>
-               <!-- <button mat-flat-button [routerLink]="['/addStock', c.companyCode]">Add Stock Price</button>-->
-                <button mat-flat-button [routerLink]="['/addStock', c.companyCode]" color="primary">Add Stock Price</button>
-                <button [routerLink]="['/update-company',comObj]" mat-flat-button color="accent">Update</button>
-                <button (click)="deleteCompany(c.companyCode)" mat-flat-button color="warn" >Delete</button>
-            </th>
-        </tr>
-    </tbody>
-    </table>
+  <table class="viewCompanyDtl">
+      <thead>
+      <tr>
+          <th>Company Code</th>
+          <th>Company Name</th>
+          <th>Company CEO</th>
+          <th>Company website</th>
+          <th>Company Turnover</th>
+          <th>Stock Price</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let c of comArr">
+          <th><a [routerLink]="['/companydtl', c.companyCode]">{{c.companyCode}}</a></th>
+          <th>{{c.companyName}}</th>
+          <th>{{c.companyCeo}}</th>
+          <th>{{c.website}}</th>
+          <th>{{c.turnover}}</th>
+          <th>{{c.stockPrice}}</th>
+          <th>
+             <!-- <button mat-flat-button [routerLink]="['/addStock', c.companyCode]">Add Stock Price</button>-->
+              <button mat-flat-button [routerLink]="['/addStock', c.companyCode]" color="primary">Add Stock Price</button>
+              <button [routerLink]="['/update-company',comObj]" mat-flat-button color="accent">Update</button>
+              <button (click)="deleteCompany(c.companyCode)" mat-flat-button color="warn" >Delete</button>
+          </th>
+      </tr>
+  </tbody>
+  </table>
 </div>
 <br>
 <!------Using Material Form------->
 
-    
-  <!--<table mat-table class="mat-elevation-z8 demo-table">
-    <!-- Position Column 
-    <ng-container matColumnDef="companyCode">
-      <th mat-header-cell *matHeaderCellDef>Company Code</th>
-      <td mat-cell *ngFor="let c of comArr">{{c.companyCode}}</td>
-    </ng-container>
   
-    <!-- Name Column 
-    <ng-container matColumnDef="companyName">
-      <th mat-header-cell *matHeaderCellDef>Company Name</th>
-      <td mat-cell *ngFor="let c of comArr">{{c.companyName}}</td>
-    </ng-container>
-  
-    <!-- Weight Column 
-    <ng-container matColumnDef="companyCeo">
-      <th mat-header-cell *matHeaderCellDef>Company Ceo</th>
-      <td mat-cell *ngFor="let c of comArr">{{c.companyCeo}}</td>
-    </ng-container>
-  
-    <!-- Symbol Column 
-    <ng-container matColumnDef="website">
-      <th mat-header-cell *matHeaderCellDef>Website</th>
-      <td mat-cell *ngFor="let c of comArr">{{c.website}}</td>
+<!--<table mat-table class="mat-elevation-z8 demo-table">
+  <!-- Position Column 
+  <ng-container matColumnDef="companyCode">
+    <th mat-header-cell *matHeaderCellDef>Company Code</th>
+    <td mat-cell *ngFor="let c of comArr">{{c.companyCode}}</td>
+  </ng-container>
+
+  <!-- Name Column 
+  <ng-container matColumnDef="companyName">
+    <th mat-header-cell *matHeaderCellDef>Company Name</th>
+    <td mat-cell *ngFor="let c of comArr">{{c.companyName}}</td>
+  </ng-container>
+
+  <!-- Weight Column 
+  <ng-container matColumnDef="companyCeo">
+    <th mat-header-cell *matHeaderCellDef>Company Ceo</th>
+    <td mat-cell *ngFor="let c of comArr">{{c.companyCeo}}</td>
+  </ng-container>
+
+  <!-- Symbol Column 
+  <ng-container matColumnDef="website">
+    <th mat-header-cell *matHeaderCellDef>Website</th>
+    <td mat-cell *ngFor="let c of comArr">{{c.website}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="turnover">
+      <th mat-header-cell *matHeaderCellDef>Turnover</th>
+      <td mat-cell *ngFor="let c of comArr">{{c.turnover}}</td>
     </ng-container>
 
-    <ng-container matColumnDef="turnover">
-        <th mat-header-cell *matHeaderCellDef>Turnover</th>
-        <td mat-cell *ngFor="let c of comArr">{{c.turnover}}</td>
-      </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell ></td>
+      <td mat-cell ></td>
+      <td mat-cell ></td>
+    </ng-container>
 
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef>Action</th>
-        <td mat-cell ></td>
-        <td mat-cell ></td>
-        <td mat-cell ></td>
-      </ng-container>
-  
-  </table>-->
-
+</table>-->
 

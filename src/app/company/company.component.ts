@@ -19,14 +19,20 @@ export interface PeriodicElement {
 export class CompanyComponent implements OnInit {
 
   constructor(private http:HttpClient, private companyService:CompanyService,
-    private router:ActivatedRoute //private fb:FormBuilder
+    private router:ActivatedRoute, private activate:Router //private fb:FormBuilder
     ) { }
   
     comObj:Company = new Company();
   ngOnInit(): void {
-    //window.location.reload();
-    this.getCompanyList();
+    if(this.companyService.isUserLoggedIn()){
+      console.log("main ngoninit..");
+      alert("helllooo...");
+      this.getCompanyList();
     this.comObj.companyCode= this.router.snapshot.paramMap.get('id');
+    }else{
+      this.activate.navigate(['/login']);
+    }
+    //window.location.reload();
   }
 
   
@@ -36,6 +42,13 @@ export class CompanyComponent implements OnInit {
   closeResult = '';
   companyDetails: | any;
   //stockListFinal:| any;
+  code:number|any;
+  name:string|any;
+  ceo:string|any;
+  website:string|any;
+  turnover:number|any;
+  sprice:number|any;
+  showById:boolean=false;
 
   addCompanyDetails()
   {
@@ -51,12 +64,18 @@ export class CompanyComponent implements OnInit {
   }
 
   getCompanyList(){
-   this.companyService.getAllCompany().subscribe(data=>{
-     this.data = JSON.stringify(data);
-     this.companyDetails = data;
-     this.comArr = Object.values(data);
-     console.log("sssssss "+this.comObj);
-   })
+    console.log("username "+localStorage.getItem('username'));
+    if(this.companyService.isUserLoggedIn()){
+      this.companyService.getAllCompany().subscribe(data=>{
+        this.data = JSON.stringify(data);
+        this.companyDetails = data;
+        this.comArr = Object.values(data);
+        console.log("sssssss "+this.comObj);
+      })
+    }else{
+      alert("Please login first");
+    }
+   
   }
 
   deleteCompany(cid:number){
@@ -93,15 +112,17 @@ export class CompanyComponent implements OnInit {
 
   getCompanyById(cid:number)
   {
+    console.log("started getCompanyById "+cid);
     this.companyService.getCompanyById(cid).subscribe(data=>{
-      console.log("comp component data "+this.data);
-      this.compArr = Object.values(data);
-      console.log("comp component compArr "+this.compArr);
-     // this.data = JSON.stringify(data);
-      this.comp = data;
-     console.log("comp component  comp "+this.comp);
-      alert("Serch result is given.!");
-
+     console.log("data by getCompanyById "+data);
+     this.comArr =Object.values(data);
+     this.code=this.compArr[0];
+     this.name=this.compArr[1];
+     this.ceo=this.compArr[2];
+     this.website=this.compArr[3];
+     this.turnover=this.compArr[4];
+     this.sprice=this.compArr[5];
+     this.showById=true;
     })
   }
 
@@ -112,4 +133,11 @@ export class CompanyComponent implements OnInit {
     this.router.navigate(['update-company']);
   }*/
 
+  navigateToLogout(){
+    console.log("Logging Off");
+    alert("Logging off..");
+     localStorage.removeItem('username');
+     localStorage.removeItem('token');
+     this.activate.navigate(['/login']);
+  }
 }
