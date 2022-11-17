@@ -33,7 +33,6 @@ import {MAT_FORM_FIELD, MatFormField, MatFormFieldControl} from '@angular/materi
 import { RegisterUserComponent } from './register-user/register-user.component';
 import { AuthHttpInterceptorService } from './auth-http-interceptor.service';
 import { GetByIdComponent } from './get-by-id/get-by-id.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -49,7 +48,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     UserComponent,
     RegisterUserComponent,
     GetByIdComponent,
-    ForgotPasswordComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -24,9 +24,10 @@
 </div>
 <hr>
 
-<div class="container" >
+<div>
     <input type="date" placeholder="Select Date" [(ngModel)]="sb.issueAt" required >
-    <button mat-flat-button color="primary" (click)="stockFilter(sb.issueAt)">Filter</button>
+    <button mat-flat-button color="primary" (click)="stockFilter(sb.issueAt)">Stock Filter</button>
+    
     </div>
     <br>
     <div *ngIf="show">

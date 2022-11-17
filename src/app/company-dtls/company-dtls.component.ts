@@ -84,15 +84,16 @@ show:boolean =true;
       console.log("Minimum stock price:: "+this.minStockPrice);
   }
 
-   stockFilter(filterterm: string){
-    filterterm=filterterm.substring(0,10);
+   stockFilter(filterinput: string){
+     console.log("inside stockFilter ")
+     filterinput=filterinput.substring(0,10);
     let count=0;
-    let length=this.companyDetails.stockList.length;
-    this.companyDetails.stockList.filter(()=>{
-      for(let d of this.companyDetails.stockList){
-       let time=d.timestamp.substring(0,10);
+    let length=this.stockList.length;
+    this.stockList.filter(()=>{
+      for(let d of this.stockList){
+       let time=d.issueAt.substring(0,10);
        count=count +1;
-       if(time===filterterm && count<=length){
+       if(time===filterinput && count<=length){
           this.filterStock.push(d);
        }
       }

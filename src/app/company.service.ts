@@ -46,7 +46,7 @@ export class CompanyService {
 
   getCompanyById(id:number):Observable<Company>
   {
-    alert("Updatin company details..."+id);
+    alert("Getting company details by id..."+id);
     return this.http.get<Company>(`${this.apiGetById}/${id}`);
     //return this.http.get<Company>(`${this.apiGetById}/${id}`, {headers: this.headers});
   }

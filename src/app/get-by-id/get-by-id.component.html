@@ -22,7 +22,7 @@
             <th>{{company.stockPrice}}</th>
             <th>
                 <button class="example-label" mat-flat-button [routerLink]="['/addStock', company.companyCode]" color="primary">Add Stock Price</button>
-                <button class="example-label1" [routerLink]="['/update-company',company]" mat-flat-button color="accent">Update</button>
+                <button class="example-label1" [routerLink]="['/update-company',company.companyCode]" mat-flat-button color="accent">Update</button>
               <!--  <button (click)="deleteCompany(company.companyCode)" mat-flat-button color="warn" >Delete</button>-->
             </th>
         </tr>

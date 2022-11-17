@@ -17,21 +17,21 @@ export class UpdateCompanyComponent implements OnInit {
 
   ngOnInit(): void {
     this.company.companyCode = this.rou.snapshot.paramMap.get('id');
-      this.companyService.getCompanyById(this.company.companyCode).subscribe(data=>{
-
-      });
+      
   }
 
  updateCompany(companyObj:Company){
-   console.log(companyObj);
+   console.log("Inside update-company component "+companyObj);
+   alert("Inside update-company component ");
   this.updatedArr=companyObj;
   this.companyService.getCompanyById(companyObj.companyCode).subscribe(
     (data)=>{
+      console.log("Data"+data);
       data.companyName=companyObj.companyName;
       data.companyCeo=companyObj.companyCeo;
       data.website=companyObj.website;
       data.turnover=companyObj.turnover;
-      this.updateService.updateCompany(companyObj).subscribe(
+      this.companyService.updateCompany(companyObj).subscribe(
         (d)=>{
           this.companyService.getAllCompany();
         } ,
