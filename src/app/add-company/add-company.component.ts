@@ -13,12 +13,19 @@ import { Company } from '../company/company';
 })
 export class AddCompanyComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,private route:Router, private addService: AddCompanyService
+  constructor(private fb: FormBuilder,private route:Router
+    , private addService: AddCompanyService, private companyService:CompanyService, private activate:Router
     // private companyComponent:CompanyComponent
     ) { }
 
   ngOnInit(): void {
-    this.setFormState();
+    if(this.companyService.isUserLoggedIn()){
+      this.setFormState();
+    }else{
+      alert("User is not logged in");
+      this.activate.navigate(['/login']);
+    }
+    
   }
   addForm : FormGroup | any;
   comObj:Company = new Company();

@@ -10,20 +10,20 @@ import { Company } from '../company/company';
 })
 export class GetByIdComponent implements OnInit {
 
-  constructor(private companyService:CompanyService, private route:ActivatedRoute) { }
+  constructor(private companyService:CompanyService, private route:ActivatedRoute, private activate:Router) { }
 
   ngOnInit(): void {
-    //this.company.companyCode= this.route.snapshot.paramMap.get('id');
-
-    this.route.params.subscribe(params=>{
-      //let id = params['id'];
-      this.companyService.getCompanyById(params['id']).subscribe(data=>{
-       // this.data = JSON.stringify(data);
-       console.log("data from api "+data);
-        this.company = data;
-        
+    if(this.companyService.isUserLoggedIn()){
+      this.route.params.subscribe(params=>{
+        this.companyService.getCompanyById(params['id']).subscribe(data=>{
+         console.log("data from api "+data);
+          this.company = data;
+        });
       });
-    });
+    }else{
+      alert("User is not logged in");
+      this.activate.navigate(['/login']);
+    }
   }
 
   company:Company=new Company();

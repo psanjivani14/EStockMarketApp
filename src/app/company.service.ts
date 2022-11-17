@@ -16,7 +16,7 @@ export class CompanyService {
   private apiGet:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/getallcompany';
   private apiPost:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/postcompany';
   private apiDelete:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1';
-  private apiUpdate:string ='http://18.237.152.200:8083/api/v1.0/market/company/updateCompany';
+  private apiUpdate:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/update-company';
   private apiGetById:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1';
 
 
@@ -46,7 +46,7 @@ export class CompanyService {
 
   getCompanyById(id:number):Observable<Company>
   {
-    alert("Serching company details..."+id);
+    alert("Updatin company details..."+id);
     return this.http.get<Company>(`${this.apiGetById}/${id}`);
     //return this.http.get<Company>(`${this.apiGetById}/${id}`, {headers: this.headers});
   }

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
+import { CompanyService } from '../company.service';
 //import { CompanyService } from '../company/company.service';
 import { Stock } from './stock';
 import { StockService } from './stock.service';
@@ -13,12 +14,17 @@ import { StockService } from './stock.service';
 })
 export class StockComponent implements OnInit {
 
-  constructor(public stockService: StockService, private http:HttpClient, private router:ActivatedRoute,
-    //private companyService:CompanyService
+  constructor(public stockService: StockService, private http:HttpClient,
+     private router:ActivatedRoute, private companyService: CompanyService, private activate:Router
     ) { }
 
   ngOnInit(): void {
+    if(this.companyService.isUserLoggedIn()){
     this.stockObj.comp_code_fk= this.router.snapshot.paramMap.get('id');
+    }else{
+      alert("User is not logged in");
+      this.activate.navigate(['/login']);
+    }
     
   }
 

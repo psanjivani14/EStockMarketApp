@@ -16,24 +16,11 @@ export class UpdateCompanyComponent implements OnInit {
     private rou:ActivatedRoute, private  companyService:CompanyService) { }
 
   ngOnInit(): void {
-    //this.company= this.rou.snapshot.paramMap.get('comObj');
-     // this.companyService.getCompanyById();
+    this.company.companyCode = this.rou.snapshot.paramMap.get('id');
+      this.companyService.getCompanyById(this.company.companyCode).subscribe(data=>{
+
+      });
   }
-
- /*updateCompany(){
-   console.log("updating company.."+this.company);
-   this.router.navigate(['update-company']);
- }*/
-
- /*getCompanyById(){
-   this.comService.getCompanyById(this.company.companyCode).subscribe(data => {
-     console.log("getting company by id.."+data);
-        this.company = data;
-   });
- }
- updateCompanyRecord(id: number){
-    this.comService.updateCompany(this.company)
- }*/
 
  updateCompany(companyObj:Company){
    console.log(companyObj);

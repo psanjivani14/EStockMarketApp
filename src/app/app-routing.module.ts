@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'addCompany/page', component:AddCompanyComponent},
   {path: 'addStock/:id',component:StockComponent },
   {path: 'companydtl/:id', component:CompanyDtlsComponent},
-  {path: 'update-company/:comObj', component:UpdateCompanyComponent},
+  {path: 'update-company/:id', component:UpdateCompanyComponent},
   {path: 'register', component:UserComponent},
   {path: 'getbyid/:id', component:GetByIdComponent}
 ];

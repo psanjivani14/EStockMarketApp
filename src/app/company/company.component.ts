@@ -26,7 +26,6 @@ export class CompanyComponent implements OnInit {
   ngOnInit(): void {
     if(this.companyService.isUserLoggedIn()){
       console.log("main ngoninit..");
-      alert("helllooo...");
       this.getCompanyList();
     this.comObj.companyCode= this.router.snapshot.paramMap.get('id');
     }else{
@@ -83,8 +82,10 @@ export class CompanyComponent implements OnInit {
       let comIndex = this.comArr.findIndex(c=>c.companyCode==cid);
       this.comArr.splice(comIndex, 1);
       alert("Company is deleted..!!");
-      window.location.reload();
+     // window.location.reload();
       this.getCompanyList();
+      this.activate.navigate(['/company']);
+      window.location.reload();
     });
   }
 
