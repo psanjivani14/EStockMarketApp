@@ -11,11 +11,10 @@ export class UserService {
    
   constructor(private http:HttpClient) { }
   users : User[] | any;
-//  '
-//private apiResister:string='http://localhost:8081/auth/user/register-user';
 
-private apiLogin:string='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/consume-login';
 
+//private apiLogin:string='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/consume-login';
+private apiLogin:string='http://localhost:8082/consume-login';
 
 loginUser(user:User):Observable<any>
 {

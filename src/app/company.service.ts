@@ -13,11 +13,17 @@ export class CompanyService {
   companys : Company[] | any;
   //id? : number;
 
-  private apiGet:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/getallcompany';
+  /*private apiGet:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/getallcompany';
   private apiPost:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/postcompany';
   private apiDelete:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1';
   private apiUpdate:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1/update-company';
-  private apiGetById:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1';
+  private apiGetById:string ='https://1oio6tpr5g.execute-api.us-west-2.amazonaws.com/DeploymentStage1';*/
+
+  private apiGet:string ='http://localhost:8082/api/v1.0/market/company/getAllCompanyDtl';
+  private apiPost:string ='http://localhost:8082/api/v1.0/market/company/addCompany';
+  private apiDelete:string ='http://localhost:8082/api/v1.0/market/company/deleteCompany';
+  private apiUpdate:string ='http://localhost:8082/api/v1.0/market/company/updateCompany';
+  private apiGetById:string ='http://localhost:8082/api/v1.0/market/company/getCompanyId';
 
 
   addCompany(comObj:Company):Observable<Company>
